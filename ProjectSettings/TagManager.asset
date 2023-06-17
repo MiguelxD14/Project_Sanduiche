@@ -8,6 +8,7 @@ TagManager:
   - Ganho
   - Tempo
   - Resultado
+  - Cliente
   layers:
   - Default
   - TransparentFX

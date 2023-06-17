@@ -9,7 +9,7 @@ public class Checagem : MonoBehaviour
 
     public Sanduiches[] SanduicheConfig; // Armazena os tipos de sanduiche existentes
     public string[] Ingredientes; // Armazena os ingredientes selecionados;
-    public GameObject SanduichePedido, pontuacao,Resultados; // SanduichePedido: Pega o gameObj responsavel por dizer qual sanduiche deve ser pronto; pontuacao: Acessa o GameObj de pontuação; Resultados: acessa a tela final de resultados;
+    public GameObject SanduichePedido,pontuacao,Resultados,Cliente; // SanduichePedido: Pega o gameObj responsavel por dizer qual sanduiche deve ser pronto; pontuacao: Acessa o GameObj de pontuação; Resultados: acessa a tela final de resultados; Cliente: gameobject responsavel por controlar a mudança de estados do cliente
     public tempoDecorrido TempoAtual; 
     public int Pontos; // atribui pontuação caso o jogador acerte;
     public bool Acertou = false, Errou = false; // Checa se o jogador acertou alguma combinação
@@ -18,6 +18,7 @@ public class Checagem : MonoBehaviour
     {
         SanduichePedido = GameObject.FindGameObjectWithTag("Sanduiche");
         pontuacao = GameObject.FindGameObjectWithTag("Ganho");
+       // Cliente = GameObject.FindGameObjectWithTag("Cliente");
         TempoAtual = GameObject.FindGameObjectWithTag("Tempo").GetComponent<tempoDecorrido>();
         NovoSanduiche();
     }
@@ -120,4 +121,9 @@ public class Checagem : MonoBehaviour
             Errou = true;
         } 
     }
+
+    // void Perdeu()
+    // {
+    //     if(Acertou == false && Errou == false && TempoAtual.Tempo -= 10)
+    // }
 }
