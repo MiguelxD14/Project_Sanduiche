@@ -6,7 +6,7 @@ using TMPro;
 public class tempoDecorrido : MonoBehaviour
 {
     //Script que controla as funções do tempo decorrido
-
+    
     public int Tempo = 120; // Variavel de controle de tempo
     // Update is called once per frame
     
