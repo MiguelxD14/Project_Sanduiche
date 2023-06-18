@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sanduiche 8
   m_EditorClassIdentifier: 
   Nome: Sanduiche Natural
-  Icone: {fileID: 21300000, guid: 4da230c9b3edc4e448304ce6eab4158f, type: 3}
+  Icone: {fileID: 21300000, guid: 82167eea6a220ff4fb7b5d60267b8b6e, type: 3}
   Ingredientes:
   - Ovos
   - Verduras
