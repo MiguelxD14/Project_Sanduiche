@@ -15,9 +15,10 @@ public class Checagem : MonoBehaviour
     public tempoDecorrido TempoAtual; // Acessa o script que controla o tempo decorrido;
     public int Pontos; // atribui pontuação caso o jogador acerte;
     public bool Acertou = false, Errou = false; // Checa se o jogador acertou alguma combinação
-    public int Acertos, Erros, Perdas; // Quantitativo de Acertos, Erros e Perdas (Perdas se tratam das vezes em que o jogador não entregou nenhum pedido dentro dex segundos)
+    public int Acertos, Erros; // Quantitativo de Acertos e Erros;
     void Start()
     {
+        //Faz as atribuições de gameObjects e chama a função de randomizar os sanduiches;
         SanduichePedido = GameObject.FindGameObjectWithTag("Sanduiche");
         pontuacao = GameObject.FindGameObjectWithTag("Ganho");
         Cliente = GameObject.FindGameObjectWithTag("Cliente");
@@ -52,19 +53,18 @@ public class Checagem : MonoBehaviour
 
     }
 
-    public void ResultadosFinais()
+    public void ResultadosFinais() //Chama a tela de resultado final e atribui informações importantes;
     {
         if(TempoAtual.Tempo == 0)
         {   
-        Resultados.SetActive(true);
-        Resultados.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Sanduíches Vendidos: " + Acertos.ToString();
-        Resultados.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Sanduíches Errados: " + Erros.ToString();
-        Resultados.transform.GetChild(4).GetComponent<TextMeshProUGUI>().text = "Sanduíches Perdidos: " + Perdas.ToString();
-        Resultados.transform.GetChild(5).GetComponent<TextMeshProUGUI>().text = "Lucro do dia: R$ " + Pontos.ToString();
+            Resultados.SetActive(true);
+            Resultados.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Sanduíches Vendidos: " + Acertos.ToString();
+            Resultados.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Sanduíches Errados: " + Erros.ToString();
+            Resultados.transform.GetChild(4).GetComponent<TextMeshProUGUI>().text = "Lucro do dia: R$ " + Pontos.ToString();
         }
         
     }
-    public void AdcionarIngredientes(GameObject Op)
+    public void AdcionarIngredientes(GameObject Op) // void acessado por cada um dos botões de ingrediente, o gameObject OP é o proprio botão;
     {
        
         string Ingrediente;
@@ -98,7 +98,7 @@ public class Checagem : MonoBehaviour
        
     }
 
-    void NovoSanduiche()
+    void NovoSanduiche() // void responsavel por gerenciar a troca/randomização dos sanduiches. Além dos sprites dos clientes.
     {
         for(int i = 0; i < Ingredientes.Length; i ++)
         {
@@ -108,7 +108,7 @@ public class Checagem : MonoBehaviour
         Cliente.GetComponent<Image>().sprite = Cliente.GetComponent<Cliente>().ImagenCliente[Random.Range(0,Cliente.GetComponent<Cliente>().ImagenCliente.Length)];
     }
 
-    void Acerto()
+    void Acerto() //Gerencia as condições de acerto;
     {
         if(SanduichePedido.GetComponent<Sanduiche>().Ingredientes[0] == Ingredientes[0] && 
         SanduichePedido.GetComponent<Sanduiche>().Ingredientes[1] == Ingredientes[1] &&
@@ -119,7 +119,7 @@ public class Checagem : MonoBehaviour
        
     }
 
-    void Erro()
+    void Erro() //Gerencia as condições de erro;
     {
         if(SanduichePedido.GetComponent<Sanduiche>().Ingredientes[0] != Ingredientes[0] || 
         SanduichePedido.GetComponent<Sanduiche>().Ingredientes[1] != Ingredientes[1] ||
@@ -129,8 +129,4 @@ public class Checagem : MonoBehaviour
         } 
     }
 
-    // void Perdeu()
-    // {
-    //     if(Acertou == false && Errou == false && TempoAtual.Tempo -= 10)
-    // }
 }
