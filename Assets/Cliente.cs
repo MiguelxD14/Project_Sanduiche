@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Cliente : MonoBehaviour
 {
-    // Script responsavel por trocar os clientes e os pedidos;
+    // Script responsavel por trocar os pedidos dos clientes;
     public GameObject SanduichePedido;
     public GameObject spriteSanduiche;
-   // public Sprites[] Imagens;
+    public Sprite[] ImagenCliente;
     // Start is called before the first frame update
     void Start()
     {

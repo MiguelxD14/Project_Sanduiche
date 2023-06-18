@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Checagem : MonoBehaviour
@@ -18,7 +19,7 @@ public class Checagem : MonoBehaviour
     {
         SanduichePedido = GameObject.FindGameObjectWithTag("Sanduiche");
         pontuacao = GameObject.FindGameObjectWithTag("Ganho");
-       // Cliente = GameObject.FindGameObjectWithTag("Cliente");
+        Cliente = GameObject.FindGameObjectWithTag("Cliente");
         TempoAtual = GameObject.FindGameObjectWithTag("Tempo").GetComponent<tempoDecorrido>();
         NovoSanduiche();
     }
@@ -51,10 +52,10 @@ public class Checagem : MonoBehaviour
         if(TempoAtual.Tempo == 0)
         {   
         Resultados.SetActive(true);
-        Resultados.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Sanduiches Vendidos: " + Acertos.ToString();
-        Resultados.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Sanduiches Errados: " + Erros.ToString();
-        Resultados.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Sanduiches Perdidos: " + Perdas.ToString();
-        Resultados.transform.GetChild(4).GetComponent<TextMeshProUGUI>().text = "Lucro do dia: R$ " + Pontos.ToString();
+        Resultados.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Sanduíches Vendidos: " + Acertos.ToString();
+        Resultados.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Sanduíches Errados: " + Erros.ToString();
+        Resultados.transform.GetChild(4).GetComponent<TextMeshProUGUI>().text = "Sanduíches Perdidos: " + Perdas.ToString();
+        Resultados.transform.GetChild(5).GetComponent<TextMeshProUGUI>().text = "Lucro do dia: R$ " + Pontos.ToString();
         }
         
     }
@@ -99,6 +100,7 @@ public class Checagem : MonoBehaviour
             Ingredientes[i] = "";
         }
         SanduichePedido.GetComponent<Sanduiche>().SanduicheConfig = SanduicheConfig[Random.Range(0,SanduicheConfig.Length)]; 
+        Cliente.GetComponent<Image>().sprite = Cliente.GetComponent<Cliente>().ImagenCliente[Random.Range(0,Cliente.GetComponent<Cliente>().ImagenCliente.Length)];
     }
 
     void Acerto()

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38e315f990063fd40adb421164e8fcc3, type: 3}
-  m_Name: Sanduiche 3
+  m_Name: Sanduiche 5
   m_EditorClassIdentifier: 
-  Nome: "Sanduiche Presuntaa\xE3o"
-  Icone: {fileID: 21300000, guid: 4da230c9b3edc4e448304ce6eab4158f, type: 3}
+  Nome: Sanduiche do Chavinho
+  Icone: {fileID: 21300000, guid: 63d689bb59e047247b77eb9e8e94ed18, type: 3}
   Ingredientes:
   - Presunto
-  - Ovos
-  - Verduras
-  Receita: Sanduiche com muito <color=red>Presunto</color>, <color=white>Ovos</color>
-    e <color=green>Verduras</color>. (Para dar uma balanceada)
+  - Presunto
+  - Presunto
+  Receita: "Sanduiche com tr\xEAs camadas de <color=red>Presunto</color>.Pra dar
+    at\xE9 perinpaque!"

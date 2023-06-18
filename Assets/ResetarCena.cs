@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ResetarCena : MonoBehaviour
 {
+    
     //Reseta a cena atual
     public void OnClick()
     {
